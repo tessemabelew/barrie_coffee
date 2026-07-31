@@ -3,3 +3,8 @@ psycopg2-binary
 python-dotenv
 pandas
 streamlit-geolocation
+streamlit-folium
+folium
+plotly
+openpyxl
+Pillow
