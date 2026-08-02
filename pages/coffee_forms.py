@@ -1,3 +1,4 @@
+import streamlit as st
 from auth.session import is_logged_in
 
 if not is_logged_in():
@@ -6,7 +7,7 @@ if not is_logged_in():
 
     st.stop()
 
-import streamlit as st
+
 
 from repositories.coffee_form_repository import (
     insert_coffee_form,

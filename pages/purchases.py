@@ -1,3 +1,5 @@
+import streamlit as st
+
 from auth.session import is_logged_in
 
 if not is_logged_in():
@@ -6,7 +8,7 @@ if not is_logged_in():
 
     st.stop()
 
-import streamlit as st
+
 from datetime import date
 
 from repositories.purchase_repository import (

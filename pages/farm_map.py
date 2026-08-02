@@ -1,15 +1,17 @@
-from auth.session import is_logged_in
-
-if not is_logged_in():
-
-    st.warning("Please login.")
-
-    st.stop()
-
 import streamlit as st
 import folium
 
 from streamlit_folium import st_folium
+
+# from auth.session import is_logged_in
+
+# if not is_logged_in():
+
+#     st.warning("Please login.")
+
+#     st.stop()
+
+
 
 from repositories.farm_repository import get_farm_locations
 
