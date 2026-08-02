@@ -1,3 +1,11 @@
+from auth.session import is_logged_in
+
+if not is_logged_in():
+
+    st.warning("Please login.")
+
+    st.stop()
+
 import streamlit as st
 
 from repositories.payment_type_repository import (

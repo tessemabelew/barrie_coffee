@@ -27,3 +27,23 @@ except Exception:
         "password": os.getenv("DB_PASSWORD"),
         "sslmode": os.getenv("DB_SSLMODE", "prefer"),
     }
+# ==========================================
+# AZURE CONFIG
+# ==========================================
+
+try:
+    import streamlit as st
+
+    AZURE_CONFIG = {
+        "client_id": st.secrets["azure"]["client_id"],
+        "tenant_id": st.secrets["azure"]["tenant_id"],
+        "client_secret": st.secrets["azure"]["client_secret"],
+    }
+
+except Exception:
+
+    AZURE_CONFIG = {
+        "client_id": os.getenv("AZURE_CLIENT_ID"),
+        "tenant_id": os.getenv("AZURE_TENANT_ID"),
+        "client_secret": os.getenv("AZURE_CLIENT_SECRET"),
+    }
