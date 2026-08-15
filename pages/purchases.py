@@ -1,6 +1,7 @@
 import streamlit as st
 
 from auth.session import is_logged_in
+from services.onedrive_service import upload_file
 
 if not is_logged_in():
 
@@ -179,7 +180,7 @@ with tab_add:
 
             try:
 
-                insert_purchase(
+                purchase_id = insert_purchase(
                     farmer_id=farmer,
                     farm_id=farm,
                     purchase_date=purchase_date,
@@ -188,7 +189,15 @@ with tab_add:
                     price_per_kg=price,
                     notes=notes,
                 )
+                if receipt is not None:
+                    file_bytes = receipt.getvalue()
 
+                    filename = f"{purchase_code}_{purchase_id}_{receipt.name}"
+
+                    result = upload_file(
+                        file_bytes=file_bytes,
+                        filename=filename
+    )
                 st.session_state.purchase_success = (
                     "Purchase saved successfully."
                 )

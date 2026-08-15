@@ -90,7 +90,9 @@ def insert_purchase(
             %s,
             %s,
             %s
-        );
+        )
+
+        RETURNING purchase_id;
         """,
         (
             purchase_code,
@@ -105,10 +107,14 @@ def insert_purchase(
         ),
     )
 
+    purchase_id = cur.fetchone()[0]
+
     conn.commit()
 
     cur.close()
     conn.close()
+
+    return purchase_id
 # ======================================================
 # SELECT
 # ======================================================
