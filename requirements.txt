@@ -9,3 +9,5 @@ plotly
 openpyxl
 Pillow
 bcrypt
+msal
+requests
