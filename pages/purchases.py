@@ -165,6 +165,12 @@ with tab_add:
             "Notes"
         )
 
+        receipt = st.file_uploader(
+            "Receipt / Invoice",
+            type=["jpg", "jpeg", "png", "pdf"],
+            help="Take a photo of the receipt or choose an existing file."
+        )
+
         submitted = st.form_submit_button(
             "Save Purchase"
         )
