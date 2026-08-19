@@ -196,10 +196,14 @@ with tab_add:
 
                     filename = f"{purchase_code}_{purchase_id}_{receipt.name}"
 
-                    result = upload_file(
-                        file_bytes=file_bytes,
-                        filename=filename
-                    )
+                    try:
+                        result = upload_file(
+                            file_bytes=file_bytes,
+                            filename=filename
+                        )
+                    except Exception as e:
+                        st.error(f"OneDrive upload failed: {e}")
+                        st.stop()
                     st.write("OneDrive result:")
                     st.write(result)
                 st.session_state.purchase_success = (
