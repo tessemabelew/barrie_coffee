@@ -198,6 +198,7 @@ with tab_add:
                         file_bytes=file_bytes,
                         filename=filename
                     )
+                    st.success("Upload completed")
                     st.write(result)
                 st.session_state.purchase_success = (
                     "Purchase saved successfully."
