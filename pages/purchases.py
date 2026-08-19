@@ -2,7 +2,7 @@ import streamlit as st
 
 from auth.session import is_logged_in
 from services.onedrive_service import upload_file
-from services.onedrive_service import get_me
+#from services.onedrive_service import get_me
 
 if not is_logged_in():
 
@@ -210,7 +210,7 @@ with tab_add:
                 st.session_state.purchase_success = (
                     "Purchase saved successfully."
                 )
-                st.write(get_me())
+                #st.write(get_me())
                 st.stop()
                 st.rerun()
 
