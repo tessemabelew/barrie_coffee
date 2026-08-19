@@ -190,6 +190,8 @@ with tab_add:
                     notes=notes,
                 )
                 if receipt is not None:
+                    st.info("Receipt detected")
+
                     file_bytes = receipt.getvalue()
 
                     filename = f"{purchase_code}_{purchase_id}_{receipt.name}"
