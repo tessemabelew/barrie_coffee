@@ -29,6 +29,21 @@ def get_access_token():
         raise Exception(result)
 
     return result["access_token"]
+def get_me():
+    token = get_access_token()
+
+    headers = {
+        "Authorization": f"Bearer {token}"
+    }
+
+    response = requests.get(
+        "https://graph.microsoft.com/v1.0/me",
+        headers=headers
+    )
+
+    response.raise_for_status()
+
+    return response.json()
 def upload_file(file_bytes, filename):
 
     token = get_access_token()
